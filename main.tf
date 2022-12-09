@@ -11,7 +11,11 @@ provider "random" {
   # Configuration options
 }
 
-resource "random_id" "id" {
+resource "random_id" "this" {
+  byte_length = 16
+}
+
+resource "random_id" "that" {
   byte_length = 16
 }
 
