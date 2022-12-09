@@ -12,13 +12,10 @@ provider "random" {
 }
 
 resource "random_id" "this" {
-  byte_length = 16
-}
-
-resource "random_id" "that" {
+  count = 3
   byte_length = 16
 }
 
 output "random_ids" {
-  value = [random_id.this.id, random_id.that.id]
+  value = [ for random_id in random_id.this : random_id.id ]
 }
