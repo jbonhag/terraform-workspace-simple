@@ -15,8 +15,13 @@ variable "organization" {
   type = string
 }
 
+variable "random_id_count" {
+  type    = number
+  default = 5
+}
+
 resource "random_id" "this" {
-  count       = 5
+  count       = var.random_id_count
   byte_length = 16
 }
 
