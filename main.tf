@@ -17,6 +17,15 @@ resource "random_id" "this" {
   byte_length = 16
 }
 
-output "random_ids" {
+resource "random_id" "that" {
+  count       = var.random_id_count
+  byte_length = 16
+}
+
+output "these_random_ids" {
   value = [for random_id in random_id.this : random_id.id]
+}
+
+output "those_random_ids" {
+  value = [for random_id in random_id.that : random_id.id]
 }
