@@ -9,7 +9,6 @@ terraform {
 
 variable "random_id_count" {
   type    = number
-  default = 5
 }
 
 resource "random_id" "this" {
